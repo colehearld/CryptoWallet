@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import walletlogo from '../wallet.png';
+import etherlogo from '../purp_eth.png';
 import './App.css';
 import Web3 from 'web3';
 import DaiTokenMock from '../abis/DaiTokenMock.json'
@@ -23,7 +23,7 @@ class App extends Component {
           }
         }
 
-  async loadBlockchainData() {
+    async loadBlockchainData() {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
@@ -61,7 +61,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Your Dai Wallet
+            <font color="white">Your Dai Wallet</font>
           </a>
         </nav>
         <div className="container-fluid mt-5">
@@ -72,7 +72,7 @@ class App extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={walletlogo} className="App-logo" alt="logo" />
+                  <img src={etherlogo} className="App-logo" alt="logo" style ={{ width: "300px"}}/>
                 </a>
                 <h1>{this.state.balance} DAI</h1>
                 <form onSubmit={(event) => {
@@ -99,13 +99,15 @@ class App extends Component {
                                       placeholder="Amount"
                                       required />
                                   </div>
-                                  <button type="submit" className="btn btn-primary btn-block">Send</button>
+
+                                  <button type="submit" className="btn btn-info btn-block" >Sell</button>
+                                  <button type="submit" className="btn btn-info btn-block" >Buy</button>
                                 </form>
                                 <table className="table">
                                   <thead>
                                     <tr>
-                                      <th scope="col">Recipient</th>
-                                      <th scope="col">value</th>
+                                      <th scope="col" > Recipient</th>
+                                      <th scope="col">Value</th>
                                     </tr>
                                   </thead>
                                   <tbody>
